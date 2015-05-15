@@ -1,0 +1,25 @@
+{
+  "name": "TouchFaker",
+  "version": "1.0.0",
+  "description": "A Javascript object to fake touch events",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Johann-S/TouchFaker.git"
+  },
+  "author": "Johann-S",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Johann-S/TouchFaker/issues"
+  },
+  "homepage": "https://github.com/Johann-S/TouchFaker",
+  "devDependencies": {
+	"grunt": "~0.4.5",
+	"grunt-contrib-jshint": "~0.11.1",
+    "grunt-contrib-uglify": "~0.9.1",
+	"grunt-jscs": "~1.8.0",
+	"load-grunt-tasks": "~3.1.0"
+  }
+}
