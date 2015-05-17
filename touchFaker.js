@@ -1,5 +1,5 @@
 /*!
- * TouchFaker - v1.0.0 - 2015-05-15
+ * TouchFaker - v1.0.1 - 2015-05-17
  * https://github.com/Johann-S/TouchFaker
  * Copyright (c) 2015 Johann SERVOIRE; Licensed MIT
  */
@@ -186,13 +186,18 @@
   })();
 
   window.TouchFaker.fakeEvent = function (eventName, selector) {
-    var target = document.querySelector(selector);
-    if (!target) {
-      return;
+    var target = selector;
+    if (typeof selector === 'string') {
+      target = document.querySelector(selector);
     }
+
+    if (!target) {
+      throw new Error('Target cannot be found');
+    }
+
     // Not a touch event
     if (eventName.indexOf('touch') === -1) {
-      return;
+      throw new Error('Not a touch event');
     }
     triggerTouch(eventName, target);
   };
