@@ -10,7 +10,10 @@ TouchFaker is based on a fork of [TouchEmulator][1]
 ## Usage
 
 ```js
-TouchFaker.fakeEvent('touchstart','#wrapper');
-TouchFaker.fakeEvent('touchmove','#wrapper');
-TouchFaker.fakeEvent('touchend','#wrapper');
+TouchFaker.fakeEvent('touchstart', '#wrapper');
+TouchFaker.fakeEvent('touchmove', '#wrapper');
+TouchFaker.fakeEvent('touchend', '#wrapper');
+
+var target = document.getElementById('wrapper');
+TouchFaker.fakeEvent('touchend', target);
 ```
