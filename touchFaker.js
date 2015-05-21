@@ -1,5 +1,5 @@
 /*!
- * TouchFaker - v1.0.1 - 2015-05-17
+ * TouchFaker - v1.1.0 - 2015-05-21
  * https://github.com/Johann-S/TouchFaker
  * Copyright (c) 2015 Johann SERVOIRE; Licensed MIT
  */
@@ -7,7 +7,7 @@
 !(function () {
   'use strict';
 
-  // polyfills
+  // Polyfills
   if (!document.createTouch) {
     document.createTouch = function (view, target, identifier, pageX, pageY, screenX, screenY, clientX, clientY) {
       // auto set
@@ -111,18 +111,43 @@
    * trigger a touch event
    * @param eventName
    * @param eventTarget
+   * @param params
    */
-  function triggerTouch(eventName, eventTarget) {
+  function triggerTouch(eventName, eventTarget, params) {
     var touchEvent = document.createEvent('Event');
     touchEvent.initEvent(eventName, true, true);
-    var mouseEv = {
-      pageX: 0,
-      pageY: 0
-    };
+    var mouseEv = (typeof params !== 'undefined') ? mergeParams(params) : getTargetCoordinate(eventTarget);
     touchEvent.touches = getActiveTouches(mouseEv, eventName, eventTarget);
     touchEvent.targetTouches = getActiveTouches(mouseEv, eventName, eventTarget);
     touchEvent.changedTouches = getChangedTouches(mouseEv, eventName, eventTarget);
     eventTarget.dispatchEvent(touchEvent);
+  }
+
+  /**
+   * Get coordinate of the target
+   * @returns Object
+   */
+  function getTargetCoordinate(target) {
+    var targetPos = target.getBoundingClientRect();
+    return {
+      pageX: targetPos.left,
+      pageY: targetPos.top
+    };
+  }
+
+  /**
+   * Merge custom parameters
+   * @returns Object
+   */
+  function mergeParams(params) {
+    var coordinate = {};
+    coordinate.clientX = params.hasOwnProperty('clientX') ? params.clientX : 0;
+    coordinate.clientY = params.hasOwnProperty('clientY') ? params.clientY : 0;
+    coordinate.pageX = params.hasOwnProperty('pageX') ? params.pageX : 0;
+    coordinate.pageY = params.hasOwnProperty('pageY') ? params.pageY : 0;
+    coordinate.screenX = params.hasOwnProperty('screenX') ? params.screenX : 0;
+    coordinate.screenY = params.hasOwnProperty('screenY') ? params.screenY : 0;
+    return coordinate;
   }
 
   /**
@@ -185,7 +210,13 @@
     }
   })();
 
-  window.TouchFaker.fakeEvent = function (eventName, selector) {
+  /**
+   * Send a fake event on the selector
+   * @param eventName
+   * @param selector
+   * @param params
+   */
+  window.TouchFaker.fakeEvent = function (eventName, selector, params) {
     var target = selector;
     if (typeof selector === 'string') {
       target = document.querySelector(selector);
@@ -199,6 +230,10 @@
     if (eventName.indexOf('touch') === -1) {
       throw new Error('Not a touch event');
     }
-    triggerTouch(eventName, target);
+
+    if (typeof params !== 'undefined' && typeof params !== 'object') {
+      throw new Error('Params has to be an Object');
+    }
+    triggerTouch(eventName, target, params);
   };
 }());

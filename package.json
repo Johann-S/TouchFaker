@@ -1,9 +1,9 @@
 {
   "name": "TouchFaker",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A Javascript object to fake touch events",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt dist"
   },
   "repository": {
     "type": "git",

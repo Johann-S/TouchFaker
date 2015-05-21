@@ -14,6 +14,14 @@ TouchFaker.fakeEvent('touchstart', '#wrapper');
 TouchFaker.fakeEvent('touchmove', '#wrapper');
 TouchFaker.fakeEvent('touchend', '#wrapper');
 
+// The selector can be a DOM element
 var target = document.getElementById('wrapper');
 TouchFaker.fakeEvent('touchend', target);
+
+// Send custom parameters
+var params = {
+    pageX: 50,
+    pageY: 10
+};
+TouchFaker.fakeEvent('touchstart', target, params);
 ```
