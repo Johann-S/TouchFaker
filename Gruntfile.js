@@ -6,7 +6,7 @@ module.exports = function (grunt) {
             options: {
                 jshintrc: '.jshintrc'
             },
-            src: 'touchFaker.js'
+            src: 'touchfaker.js'
         },
         jscs: {
             options: {
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'touchFaker.min.js': ['touchFaker.js']
+                    'touchfaker.min.js': ['touchfaker.js']
                 }
             }
         }
