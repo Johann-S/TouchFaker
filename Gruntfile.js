@@ -4,13 +4,13 @@ module.exports = function (grunt) {
     grunt.initConfig({
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: 'src/.jshintrc'
             },
-            src: 'touchfaker.js'
+            src: 'src/touchfaker.js'
         },
         jscs: {
             options: {
-                config: '.jscsrc'
+                config: 'src/.jscsrc'
             },
             src: '<%= jshint.src %>'
         },
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'touchfaker.min.js': ['touchfaker.js']
+                    'dist/touchfaker.min.js': ['src/touchfaker.js']
                 }
             }
         }
