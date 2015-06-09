@@ -1,7 +1,9 @@
 # TouchFaker
 
 [![Join the chat at https://gitter.im/Johann-S/TouchFaker](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Johann-S/TouchFaker?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/Johann-S/TouchFaker.svg?style=flat)](https://travis-ci.org/Johann-S/TouchFaker) [![devDependency Status](https://david-dm.org/Johann-S/TouchFaker/dev-status.svg)](https://david-dm.org/Johann-S/TouchFaker#info=devDependencies)
+[![GitHub Release](https://img.shields.io/github/release/Johann-S/TouchFaker.svg)](https://github.com/Johann-S/TouchFaker/releases)
+[![Build Status](https://travis-ci.org/Johann-S/TouchFaker.svg?style=flat)](https://travis-ci.org/Johann-S/TouchFaker) 
+[![devDependency Status](https://david-dm.org/Johann-S/TouchFaker/dev-status.svg)](https://david-dm.org/Johann-S/TouchFaker#info=devDependencies)
 
 An Object to fake touch events.
 
