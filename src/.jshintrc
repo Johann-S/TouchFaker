@@ -6,7 +6,6 @@
   "expr"    : true,
   "forin"   : true,
   "freeze"  : true,
-  "latedef" : true,
   "nonbsp"  : true,
   "strict"  : true,
   "undef"   : true,
