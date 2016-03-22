@@ -9,8 +9,6 @@ An Object to fake touch events.
 
 TouchFaker is based on a fork of [TouchEmulator][1]
 
-[1]: https://github.com/hammerjs/touchemulator
-
 ## Usage
 
 ```js
@@ -29,3 +27,10 @@ var params = {
 };
 TouchFaker.fakeEvent('touchstart', target, params);
 ```
+
+## Used by
+
+- [Ratchet][2]
+
+[1]: https://github.com/hammerjs/touchemulator
+[2]: https://github.com/twbs/ratchet
